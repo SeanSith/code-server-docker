@@ -4,7 +4,8 @@ ENV SERVICE_URL=https://open-vsx.org/vscode/gallery
 ENV ITEM_URL=https://open-vsx.org/vscode/item
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs \
+    && npm install -g yarn
 
 RUN curl -fsSL https://raw.githubusercontent.com/cdr/code-server/main/install.sh | sh
 
