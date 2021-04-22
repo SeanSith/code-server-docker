@@ -10,8 +10,13 @@ services:
     # https://github.com/docker/for-mac/issues/483#issuecomment-620229892
     volumes:
       - /run/host-services/ssh-auth.sock:/ssh-agent
+      - app:/app
     environment:
       - SSH_AUTH_SOCK=/ssh-agent
     ports:
       - 8080:8080
-    
+      - 3000:3000
+    command: [ "code-server", "--auth", "none", "--bind-addr", "0.0.0.0:8080", "/app"]
+
+volumes:
+  app:
