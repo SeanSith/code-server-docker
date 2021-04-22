@@ -11,6 +11,7 @@ services:
     volumes:
       - /run/host-services/ssh-auth.sock:/ssh-agent
       - app:/app
+      - ruby27-bundle:/usr/local/bundle
     environment:
       - SSH_AUTH_SOCK=/ssh-agent
     ports:
@@ -20,3 +21,4 @@ services:
 
 volumes:
   app:
+  ruby27-bundle:
