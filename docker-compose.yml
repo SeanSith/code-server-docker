@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  codeserver:
+    container_name: codeserver
+    image: codeserver-ruby
+    build:
+      context: .
+      dockerfile: Dockerfile-ruby-2.7
+    # https://github.com/docker/for-mac/issues/483#issuecomment-620229892
+    volumes:
+      - /run/host-services/ssh-auth.sock:/ssh-agent
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
+    ports:
+      - 8080:8080
+    
